@@ -1,0 +1,49 @@
+<div class="container mt-5 container-table">
+  <table class="table table-sm" >
+    <thead>
+      <tr>
+        <th scope = "col" ></th>
+        <th scope = "col" >Title</th>
+        <th scope = "col" >Due Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of itemList">
+        <tr app-item [item]="item" [user]="user"></tr>
+      </ng-container> 
+    </tbody>
+
+  </table>
+  <div class="container text-end btn-text-end">
+    <button class="btn btn-light" (click)="openModal(modal)">Add Item</button>
+  </div>
+</div>
+
+
+<ng-template #modal>
+  <div class="modal-header">
+      <h5>Add Item</h5>
+  </div>
+  <div class="modal-body">
+    <div class="input-group input-form">
+      <input name = "newTitle" type="text" class="form-control" placeholder="Item Title" [formControl]="titleControl">
+    </div>
+    <div *ngIf="titleControl.invalid && (titleControl.dirty || titleControl.touched)" class="alert-message">Please enter a valid Title</div>
+    <div class="input-group input-form">
+    <button class="btn btn-outline-secondary bi bi-calendar" (click)="d.toggle()" type="button"></button>
+      <input 
+          type="text" 
+          class="form-control" 
+          [placeholder]="newItemConvertedDueDate | date:'yyyy-MM-dd'" 
+          name="dp" 
+          ngbDatepicker 
+          #d="ngbDatepicker"
+          [formControl]="dateControl"
+      />
+    </div>
+    <div *ngIf="dateControl.invalid && (dateControl.dirty || dateControl.touched)" class="alert-message">Please enter a valid Date using yyyy-MM-dd</div>
+  </div>
+  <div class="text-end btn-end">
+    <button type="button" class="btn btn-link" (click)="addItem()">Add</button>  
+  </div>
+</ng-template>

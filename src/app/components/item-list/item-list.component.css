@@ -1,0 +1,32 @@
+.btn-link{
+    color: black;
+    text-decoration: none;
+    font-size: small;
+}
+.btn-end{
+    padding-right: 20px;
+    padding-bottom: 10px;
+}
+
+.input-form{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.btn-text-end{
+    text-align: end;
+    padding-top: 5px;
+    
+}
+
+.alert-message{
+    padding-left: 10px;
+    padding-top: 0px;
+    color:red;
+}
+
+.container-table{
+    width:70%;
+    margin: 0 auto;
+}

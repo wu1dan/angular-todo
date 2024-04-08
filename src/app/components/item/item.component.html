@@ -1,0 +1,33 @@
+<td class="align-middle col-md-1" [ngClass]="getStatus(item)"><input type="checkbox" [checked]="item.completionStatus" (change)="changeStatus(item)"></td>
+
+<td class="align-middle col-md-3" [ngClass]="getStatus(item)">
+    <div *ngIf="!editMode">{{ item.title }}</div>
+    <input *ngIf="editMode" type="text" class="form-control" name="newTitle" [placeholder]="item.title" [formControl]="titleControl">
+    <div *ngIf="titleControl.invalid && (titleControl.dirty || titleControl.touched) || titleControl.errors?.['invalidTitle']" class="alert-message">Please enter a valid Title</div>
+</td>
+
+<td class="align-middle col-md-5" [ngClass]="getStatus(item)">
+    <div *ngIf="!editMode">{{ item.dueDate | date:'yyyy-MM-dd' }}</div>
+    <div *ngIf="editMode" class="input-group">
+        <button class="btn btn-outline-secondary bi bi-calendar" (click)="d.toggle()" type="button"></button>
+        <input 
+            class="form-control" 
+            [placeholder]="item.dueDate | date:'yyyy-MM-dd'" 
+            name="dp" 
+            ngbDatepicker 
+            #d="ngbDatepicker"
+            [formControl]="dateControl"
+        />
+        <div *ngIf="dateControl.invalid && (dateControl.dirty || dateControl.touched) || dateControl.errors?.['invalidDate']" class="alert-message">Please enter a valid Date using yyyy-MM-dd</div>
+    </div>
+</td>
+
+<td class="align-middle col-md-1" [ngClass]="getStatus(item)">
+    <button type="button" class="btn btn-link" (click)="openEditMode()" *ngIf="!editMode">Edit</button>
+    <button type="button" class="btn btn-link" (click)="updateItem(item)" *ngIf="editMode">Save</button>  
+</td>
+
+<td class="align-middle col-md-1" [ngClass]="getStatus(item)">
+    <button type="button" class="btn btn-link" (click)="deleteItem(item)" *ngIf="!editMode">Delete</button>
+    <button type="button" class="btn btn-link" (click)="closeEditMode()" *ngIf="editMode">Close</button>
+</td>

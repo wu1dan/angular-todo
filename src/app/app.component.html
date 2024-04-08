@@ -1,0 +1,6 @@
+<div class="main">
+  <app-users (currentUserEvent)="getUser($event)"></app-users>
+</div>
+<div class="main">
+  <app-item-list [user]="user"></app-item-list>
+</div>

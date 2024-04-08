@@ -1,0 +1,51 @@
+<div class="main text-center">
+    <h2 *ngIf="!loggedIn">Hello</h2>
+    <h2 *ngIf="loggedIn">Hello {{user.firstName}}</h2>
+    <h4>What would you like to do today?</h4>
+  </div>
+<div class="container-header text-end">
+    <button *ngIf="!loggedIn" class="btn btn-light" (click)="openModal(modal)">Log In</button>
+    <button *ngIf="!loggedIn" class="btn btn-light" (click)="openModal(signUpModal)">Sign Up</button>
+    <button *ngIf="loggedIn" class="btn btn-light" (click)="logOutUser(user)">Log Out</button>
+</div>
+
+<ng-template #modal>
+    <div class="modal-header">
+        <h5>Log In</h5>
+    </div>
+    <div class="modal-body">
+      <div class="input-group input-form">
+        <input name = "logInName" type="text" class="form-control" placeholder="First Name" [formControl]="logInNameControl">
+      </div>
+      <div *ngIf="logInNameControl.invalid && (logInNameControl.dirty || logInNameControl.touched)" class="alert-message">Please enter a valid First Name</div>
+
+      <div class="input-group input-form">
+        <input name = "logInLastName" type="text" class="form-control" placeholder="Last Name" [formControl]="logInLastNameControl">
+      </div>
+      <div *ngIf="logInLastNameControl.invalid && (logInLastNameControl.dirty || logInLastNameControl.touched) || logInLastNameControl.errors?.['invalidLogInLastName']" class="alert-message">Please enter a valid Last Name</div>
+      <div *ngIf="invalidUserControl.errors?.['invalidUser']" class="alert-message">User not found</div>
+    </div>
+    <div class="text-end btn-end">
+      <button type="button" class="btn btn-link" (click)="logInUser()">Log In</button>  
+    </div>
+  </ng-template>
+
+<ng-template #signUpModal>
+    <div class="modal-header">
+        <h5>Log In</h5>
+    </div>
+    <div class="modal-body">
+      <div class="input-group input-form">
+        <input name = "logInName" type="text" class="form-control" placeholder="First Name" [formControl]="signUpNameControl">
+      </div>
+      <div *ngIf="signUpNameControl.invalid && (signUpNameControl.dirty || signUpNameControl.touched)" class="alert-message">Please enter a valid First Name</div>
+
+      <div class="input-group input-form">
+        <input name = "logInLastName" type="text" class="form-control" placeholder="Last Name" [formControl]="signUpLastNameControl"> 
+      </div>
+      <div *ngIf="signUpLastNameControl.invalid && (signUpLastNameControl.dirty || signUpLastNameControl.touched) || signUpLastNameControl.errors?.['invalidSignUpLastName']" class="alert-message">Please enter a valid Last Name</div>
+    </div>
+    <div class="text-end btn-end">
+      <button type="button" class="btn btn-link" (click)="signUpUser()">Sign Up</button>  
+    </div>
+  </ng-template>

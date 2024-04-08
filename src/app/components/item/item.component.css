@@ -1,0 +1,32 @@
+.completed {
+    background-color: lightgreen;
+}
+
+.overdue {
+    background-color: red;
+}
+
+.upcomingdue {
+    background-color: orange;
+}
+
+.default {
+    background-color: white;
+}
+
+.btn-link{
+    color: black;
+    text-decoration: none;
+    font-size: small;
+}
+
+.tr {
+    height: 25px;
+}
+
+.alert-message{
+    padding-left: 10px;
+    padding-top: 0px;
+    color:black;
+    font-size:small;
+}
