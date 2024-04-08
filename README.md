@@ -6,22 +6,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Using
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+You can add/edit items immediately, but it is under a guest account. All items on the item list are saved to the user, so logging in as a user and adding items will save your items to the user and logging out will restore the items of the guest account instance. Currently, there are two premade users which can be accessed in the login modal. The First and Last name for the first user is (Danny, Wu) and the second user is (Test, Subject). Alternatively you can create a new user to store items under.
 
-## Running end-to-end tests
+Currently it is using First and Last name to create a user, but in reality it would utilize a username/email and a password which would be stored on a database.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To-DO items are color coded, where completed items are green, overdue items are red, upcoming items that are due within 5 days are orange, and items that are due in over 5 days are white.
 
-## Further help
+The services are contained in the services folder, the models in the models folder, and the components in the components folder. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+If given more time, I would spend more time on the styling of the project but the functionality was prioritized due to the time constraints.
